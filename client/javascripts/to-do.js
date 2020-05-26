@@ -1,7 +1,9 @@
 //jshint esversion: 6
 
 let controller = function() {
-
+  if (localStorage.setItem("toDoList", $(".comments").html())) {
+    $(".comments").html(localStorage.getItem("toDoList"));
+  }
   let addCommentFromInputBox = function() {
     //Semmy uses "$" to name variables that will contain jQuery objects
     let $new_comment;
@@ -11,7 +13,7 @@ let controller = function() {
       //$new_comment.hide();
       $(".comments").append($new_comment);
       //$new_comment.fadeIn();
-      $(".comment-input input").val("");
+      $(".comment-input input").val(""); //this is clearing the comment from the text box
     }
   };
 
