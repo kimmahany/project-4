@@ -38,8 +38,8 @@ class Rabbit extends Animal {
 
   //override the inherited method
   stop() {
-    super.stop(); // call parent stop
-    this.hide(); // and then hide
+    this.speed = 0;
+    console.log(`${this.name} stopped!`);
   }
 }
 
@@ -47,6 +47,9 @@ class Rabbit extends Animal {
 class Dog extends Animal {
   constructor(name, breed, weight, speed, bark) {
     super(name);
+    this.breed = breed;
+    this.weight = weight;
+    this.speed = speed;
     this.bark = bark;
   }
   stop() {
@@ -71,15 +74,17 @@ let test_driver = () => {
     console.log(
       `${fang.name} is a ${fang.breed} dog weighing ${fang.weight} lbs. that can run ${fang.speed} mph.`
     );
-    console.log(`Look, a cat! ${fang.name} barks: ${fang.bark}`); // fix fang.bark
+    console.log(`Look, a cat! ${fang.name} barks: ${fang.bark} ${fang.bark}`); // fix fang.bark add double
     fang.stop();
+    console.log(`${fang.bark} ${fang.bark}`); // woof woof
     const zero = new Dog("Zero", "Beagle", 22, "Yip");
     zero.run(10);
     console.log(
       `${zero.name} is a ${zero.breed} dog weighing ${zero.weight} lbs. that can run ${zero.speed} mph.`
     );
-    console.log(`Look, a cat! ${zero.name} barks: ${zero.bark}`); // fix zero.bark
+    console.log(`Look, a cat! ${zero.name} barks: ${zero.bark} ${zero.bark}`); // fix zero.bark add double
     zero.stop();
+    console.log(`${zero.bark} ${zero.bark}`); // add yip yip
   };
 
   //run tests
